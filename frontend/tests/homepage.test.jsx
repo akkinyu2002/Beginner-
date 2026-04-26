@@ -6,6 +6,16 @@ jest.mock('next/dynamic', () => () => {
   return MockDynamicComponent;
 });
 
+jest.mock('../components/LessonSystem', () => {
+  const MockLessonSystem = () => <div>Lesson System</div>;
+  return MockLessonSystem;
+});
+
+jest.mock('../components/PracticePanel', () => {
+  const MockPracticePanel = () => <div>Practice Panel</div>;
+  return MockPracticePanel;
+});
+
 describe('HomePage', () => {
   it('shows homepage heading and start learning CTA', () => {
     render(<HomePage />);

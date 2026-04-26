@@ -1,6 +1,7 @@
 import Hero from '../components/Hero';
 import LessonSystem from '../components/LessonSystem';
 import dynamic from 'next/dynamic';
+import PracticePanel from '../components/PracticePanel';
 
 const EditorPanel = dynamic(() => import('../components/EditorPanel'), {
   ssr: false,
@@ -17,6 +18,7 @@ export default function HomePage() {
       <Hero />
       <LessonSystem />
       <EditorPanel />
+      <PracticePanel />
     </main>
   );
 }
