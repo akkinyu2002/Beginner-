@@ -4,34 +4,42 @@ function getApiBaseUrl() {
   return process.env.NEXT_PUBLIC_API_BASE_URL || DEFAULT_API_BASE_URL;
 }
 
-async function fetchLesson() {
-  const response = await fetch(`${getApiBaseUrl()}/lesson`, {
+async function fetchJson(url, options) {
+  const response = await fetch(url, {
     cache: 'no-store',
+    ...options,
   });
 
+  const payload = await response.json();
+
   if (!response.ok) {
-    throw new Error('Failed to load lesson content.');
+    throw new Error(payload.message || payload.feedback || 'Request failed.');
   }
 
-  return response.json();
+  return payload;
+}
+
+async function fetchLesson() {
+  return fetchJson(`${getApiBaseUrl()}/lesson`);
+}
+
+async function fetchLessonBySlug(slug) {
+  return fetchJson(`${getApiBaseUrl()}/lesson/${encodeURIComponent(slug)}`);
+}
+
+async function fetchLessonCatalog() {
+  const response = await fetchJson(`${getApiBaseUrl()}/lesson/list`);
+  return response.lessons || [];
 }
 
 async function validatePracticeCode(code) {
-  const response = await fetch(`${getApiBaseUrl()}/practice/validate`, {
+  return fetchJson(`${getApiBaseUrl()}/practice/validate`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ code }),
   });
-
-  const payload = await response.json();
-
-  if (!response.ok) {
-    throw new Error(payload.feedback || 'Validation failed.');
-  }
-
-  return payload;
 }
 
-export { fetchLesson, getApiBaseUrl, validatePracticeCode };
+export { fetchLesson, fetchLessonBySlug, fetchLessonCatalog, getApiBaseUrl, validatePracticeCode };

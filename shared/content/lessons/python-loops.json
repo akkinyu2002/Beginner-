@@ -1,0 +1,14 @@
+{
+  "id": "python-loops",
+  "slug": "python-loops",
+  "order": 3,
+  "title": "Python For Loops",
+  "simple": "A loop repeats steps. This is useful when the same work must run many times.",
+  "advanced": "A for loop iterates over an iterable. range(start, stop) creates a sequence used for deterministic iteration.",
+  "code": "for i in range(1, 6):\n    print(i)",
+  "explanation": "This lesson introduces repetition and sequence-based iteration.",
+  "lineExplanations": [
+    "Line 1: Create a loop where i goes from 1 to 5.",
+    "Line 2: Print i in each loop round."
+  ]
+}

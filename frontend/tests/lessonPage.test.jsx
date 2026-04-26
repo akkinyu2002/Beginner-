@@ -6,11 +6,17 @@ jest.mock('../components/LessonSystem', () => {
   return MockLessonSystem;
 });
 
+jest.mock('../components/LessonCatalog', () => {
+  const MockLessonCatalog = () => <div>Lesson Catalog Component</div>;
+  return MockLessonCatalog;
+});
+
 describe('LessonPage', () => {
-  it('renders lesson page heading and lesson system', () => {
+  it('renders roadmap heading, catalog, and lesson system', () => {
     render(<LessonPage />);
 
-    expect(screen.getByRole('heading', { name: /basic python lesson/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /python learning roadmap/i })).toBeInTheDocument();
+    expect(screen.getByText(/lesson catalog component/i)).toBeInTheDocument();
     expect(screen.getByText(/lesson system component/i)).toBeInTheDocument();
   });
 });

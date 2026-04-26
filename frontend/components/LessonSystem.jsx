@@ -1,26 +1,32 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import { fetchLesson } from '../lib/api';
+import { fetchLesson, fetchLessonBySlug } from '../lib/api';
 import pythonIntroLesson from '../data/pythonIntroLesson';
 
-export default function LessonSystem() {
+export default function LessonSystem({ lessonSlug }) {
   const [mode, setMode] = useState('simple');
   const [lesson, setLesson] = useState(pythonIntroLesson);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState('');
 
   useEffect(() => {
     let mounted = true;
 
+    setLoading(true);
+    setLoadError('');
+
     const loadLesson = async () => {
       try {
-        const serverLesson = await fetchLesson();
+        const serverLesson = lessonSlug ? await fetchLessonBySlug(lessonSlug) : await fetchLesson();
         if (mounted) {
           setLesson(serverLesson);
+          setMode('simple');
         }
       } catch (_error) {
         if (mounted) {
           setLesson(pythonIntroLesson);
+          setLoadError('Unable to load selected lesson. Showing starter lesson instead.');
         }
       } finally {
         if (mounted) {
@@ -34,7 +40,7 @@ export default function LessonSystem() {
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [lessonSlug]);
 
   const explanationText = useMemo(() => {
     if (mode === 'simple') {
@@ -44,7 +50,8 @@ export default function LessonSystem() {
     return lesson.advanced;
   }, [lesson, mode]);
 
-  const codeLines = lesson.code.split('\n');
+  const codeLines = (lesson.code || '').split('\n');
+  const lineExplanations = lesson.lineExplanations || [];
 
   return (
     <section
@@ -63,6 +70,7 @@ export default function LessonSystem() {
       </div>
 
       {loading && <p className="mt-4 text-sm text-slate-500">Loading lesson content...</p>}
+  {loadError && <p className="mt-4 rounded-lg bg-amber-50 p-3 text-sm text-amber-700">{loadError}</p>}
 
       <p className="mt-4 rounded-xl bg-cyan-50 p-4 text-slate-800">{explanationText}</p>
 
@@ -77,7 +85,7 @@ export default function LessonSystem() {
         <div>
           <h3 className="text-lg font-semibold text-slate-900">Line by Line Logic</h3>
           <ul className="mt-3 space-y-2">
-            {lesson.lineExplanations.map((lineExplanation, index) => (
+            {lineExplanations.map((lineExplanation, index) => (
               <li key={lineExplanation} className="rounded-lg border border-slate-200 p-3 text-sm text-slate-700">
                 <p className="font-semibold text-slate-900">{codeLines[index]}</p>
                 <p className="mt-1">{lineExplanation}</p>

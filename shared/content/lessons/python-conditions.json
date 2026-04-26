@@ -1,0 +1,17 @@
+{
+  "id": "python-conditions",
+  "slug": "python-conditions",
+  "order": 2,
+  "title": "Python If and Else",
+  "simple": "If checks a condition. If it is true, one block runs. If false, another block can run.",
+  "advanced": "Conditional branching controls program flow by evaluating boolean expressions and selecting execution paths.",
+  "code": "marks = 72\nif marks >= 50:\n    print(\"Pass\")\nelse:\n    print(\"Try Again\")",
+  "explanation": "This lesson teaches how a program makes decisions using conditions.",
+  "lineExplanations": [
+    "Line 1: Store student marks in a variable.",
+    "Line 2: Check if marks are at least 50.",
+    "Line 3: If true, print Pass.",
+    "Line 4: Otherwise, run else block.",
+    "Line 5: Print Try Again when condition is false."
+  ]
+}

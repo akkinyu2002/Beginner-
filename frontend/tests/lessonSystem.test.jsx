@@ -4,9 +4,10 @@ import LessonSystem from '../components/LessonSystem';
 
 jest.mock('../lib/api', () => ({
   fetchLesson: jest.fn(),
+  fetchLessonBySlug: jest.fn(),
 }));
 
-const { fetchLesson } = require('../lib/api');
+const { fetchLesson, fetchLessonBySlug } = require('../lib/api');
 
 beforeEach(() => {
   fetchLesson.mockResolvedValue({
@@ -21,6 +22,15 @@ beforeEach(() => {
       'Line 3: Print the value stored in name.',
       'Line 4: Print the value stored in age.',
     ],
+  });
+
+  fetchLessonBySlug.mockResolvedValue({
+    title: 'Python For Loops',
+    simple: 'A loop repeats steps.',
+    advanced: 'A for loop iterates over a sequence.',
+    code: 'for i in range(1, 6):\n    print(i)',
+    explanation: 'Loop lesson explanation.',
+    lineExplanations: ['Line 1: Start loop.', 'Line 2: Print each value.'],
   });
 });
 
@@ -44,5 +54,12 @@ describe('LessonSystem', () => {
 
     expect(await screen.findByText('name = "Asha"')).toBeInTheDocument();
     expect(screen.getByText(/Line 4: Print the value stored in age/i)).toBeInTheDocument();
+  });
+
+  it('loads lesson by slug when lessonSlug is provided', async () => {
+    render(<LessonSystem lessonSlug="python-loops" />);
+
+    expect(fetchLessonBySlug).toHaveBeenCalledWith('python-loops');
+    expect(await screen.findByText(/python for loops/i)).toBeInTheDocument();
   });
 });
