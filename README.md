@@ -23,3 +23,4 @@ CodeFromZero is a free learning platform MVP designed for both young learners an
 - `npm run lint` - run linters
 - `npm run format` - run prettier
 - `npm run pipeline` - lint, test, fix, commit automation
+- `npm run pipeline -- --dry-run` - run pipeline checks without auto-commit
