@@ -1,0 +1,13 @@
+{
+  "title": "Python Variables and Print",
+  "simple": "A variable is like a labeled box. You can keep words or numbers inside the box and use it later.",
+  "advanced": "A variable binds a name to an object in memory. Python is dynamically typed, so the name can point to different object types over time.",
+  "code": "name = \"Asha\"\nage = 10\nprint(name)\nprint(age)",
+  "explanation": "This lesson introduces assignment and output. Students learn how values are stored and displayed.",
+  "lineExplanations": [
+    "Line 1: Create a variable called name and store the text \"Asha\".",
+    "Line 2: Create a variable called age and store the number 10.",
+    "Line 3: Print the value stored in name.",
+    "Line 4: Print the value stored in age."
+  ]
+}
