@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C++ Adventure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Quicksand:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <main class="lesson-page">
+    <section class="lesson-head">
+      <h1>C++ Adventure</h1>
+      <p>C++ adds object-oriented features, useful for bigger and cleaner programs.</p>
+      <a class="back-link" href="../index.html">Back to Home</a>
+    </section>
+
+    <section class="lesson-grid">
+      <article class="lesson-card">
+        <h2>Hello C++</h2>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    cout &lt;&lt; "Hello, C++!" &lt;&lt; endl;
+    return 0;
+}</code></pre>
+      </article>
+
+      <article class="lesson-card">
+        <h2>Class + Object</h2>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+class Robot {
+public:
+    void speak() {
+        cout &lt;&lt; "I am a learning robot" &lt;&lt; endl;
+    }
+};
+
+int main() {
+    Robot r1;
+    r1.speak();
+}</code></pre>
+        <p>Class is a blueprint. Object is a real thing made from that blueprint.</p>
+      </article>
+
+      <article class="lesson-card">
+        <h2>Function Logic</h2>
+        <pre><code>int add(int a, int b) {
+    return a + b;
+}</code></pre>
+        <p>Function input: <strong>a</strong> and <strong>b</strong>. Output: their sum.</p>
+      </article>
+
+      <article class="lesson-card">
+        <h2>Mini Task</h2>
+        <p>Create a class <strong>Student</strong> with one function that prints name and class.</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
