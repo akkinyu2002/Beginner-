@@ -1,7 +1,7 @@
-# OS and editor
-.DS_Store
-Thumbs.db
-.vscode/
-
-# Logs
+node_modules/
+coverage/
+frontend/.next/
+frontend/out/
+.env
+.env.local
 *.log

@@ -1,40 +1,25 @@
-# Code Goldmine for Kids
+# CodeFromZero
 
-A beginner-friendly learning website for school students (around class 4 and above) to explore:
-- C
-- C++
-- JavaScript
-- HTML + CSS
-- Python
+CodeFromZero is a free learning platform MVP designed for both young learners and advanced students.
 
-## Goal
-Make coding simple, fun, and visual. Every topic explains:
-- What the concept means in easy words
-- Why we use it
-- How code logic works step by step
-- Small examples and mini challenges
+## Tech Stack
+- Frontend: Next.js + Tailwind CSS + Monaco Editor
+- Backend: Node.js + Express
+- Testing: Jest + Testing Library + Supertest
 
-## Project Structure
-- `index.html` - Home page
-- `styles.css` - Shared styling
-- `script.js` - Small interactive helpers
-- `lessons/` - Language-wise lessons
-- `assets/` - Images or downloadable resources
-- `guides/` - Quick guides and glossary for fast revision
+## Quick Start
+1. Install dependencies:
+   npm install
+2. Start full stack:
+   npm run dev
+3. Frontend:
+   http://localhost:3000
+4. Backend:
+   http://localhost:4000
 
-## How to run
-Open `index.html` in your browser.
-
-## Included Guides
-- `guides/c-quick-guide.md`
-- `guides/cpp-quick-guide.md`
-- `guides/javascript-quick-guide.md`
-- `guides/html-css-quick-guide.md`
-- `guides/python-quick-guide.md`
-- `guides/coding-glossary.md`
-
-## Future ideas
-- Add animated logic visualizers
-- Add beginner quizzes and badges
-- Add downloadable worksheets for practice
-- Add videos and voice explanations
+## Scripts
+- `npm run dev` - run frontend and backend
+- `npm run test` - run backend and frontend tests
+- `npm run lint` - run linters
+- `npm run format` - run prettier
+- `npm run pipeline` - lint, test, fix, commit automation
