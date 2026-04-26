@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript Fun</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Quicksand:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <main class="lesson-page">
+    <section class="lesson-head">
+      <h1>JavaScript Fun</h1>
+      <p>JavaScript gives a web page a brain. It helps pages react to clicks and input.</p>
+      <a class="back-link" href="../index.html">Back to Home</a>
+    </section>
+
+    <section class="lesson-grid">
+      <article class="lesson-card">
+        <h2>Variable</h2>
+        <p>A variable stores data in a named box.</p>
+        <pre><code>let studentName = "Aman";
+console.log(studentName);</code></pre>
+      </article>
+
+      <article class="lesson-card">
+        <h2>Function</h2>
+        <p>A function is a task machine. You call it when you need that task.</p>
+        <pre><code>function greet(name) {
+  return "Hello " + name;
+}
+
+console.log(greet("Riya"));</code></pre>
+      </article>
+
+      <article class="lesson-card">
+        <h2>Event Logic</h2>
+        <p>When user clicks a button, code runs. That is event-based logic.</p>
+        <pre><code>const btn = document.getElementById("myBtn");
+btn.addEventListener("click", () =&gt; {
+  alert("You clicked me!");
+});</code></pre>
+      </article>
+
+      <article class="lesson-card">
+        <h2>Mini Task</h2>
+        <p>Create a button. On click, show your favorite fruit name inside a paragraph.</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
