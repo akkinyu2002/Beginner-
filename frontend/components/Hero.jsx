@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Hero() {
   return (
     <section className="mx-auto flex w-full max-w-5xl flex-col gap-4 rounded-2xl border border-slate-200 bg-white/80 p-8 shadow-sm">
@@ -11,12 +13,12 @@ export default function Hero() {
         Kids can learn in simple mode. College students can switch to advanced mode and dive into real
         coding depth.
       </p>
-      <a
-        href="#lesson"
+      <Link
+        href="/lesson"
         className="w-fit rounded-xl bg-slate-900 px-5 py-3 font-semibold text-white transition hover:bg-slate-700"
       >
         Start Learning
-      </a>
+      </Link>
     </section>
   );
 }
